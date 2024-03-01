@@ -1,23 +1,31 @@
 import PropTypes from 'prop-types'
-export const ButonCalculadora = ({arrNumber, type}) => {
+import { useOperation } from '../hooks/useOperation'
+
+export const ButonCalculadora = ({ arrComponent, type, setHandleClick }) => {
+    const { handleClick} = useOperation();
+    const handleClickWithValue = (value) => {
+        handleClick(value);
+        setHandleClick(value); 
+    };
     return (
         <>
             <div className={type === 'number' ? 'menu_number' : 'menu_operation'}>
-            {
-                arrNumber.map((e) => (
-                    <button key={e} className={type}>{e}</button>
-                ))
-            }    
+                {
+                    arrComponent.map((e) => (
+                        <button key={e} className={type} onClick={() =>handleClickWithValue(e)}>{e}</button>
+                    ))
+                }
             </div>
         </>
     )
 }
 
 ButonCalculadora.propTypes = {
-     arrNumber: PropTypes.array, 
-     type: PropTypes.string.isRequired, 
- }
+    arrComponent: PropTypes.array.isRequired,
+    type: PropTypes.string.isRequired,
+    setHandleClick: PropTypes.func,
+}
 
- ButonCalculadora.defaultProps = {
-    arrNumber: [],
- }
+ButonCalculadora.defaultProps = {
+    arrComponent: [],
+}
