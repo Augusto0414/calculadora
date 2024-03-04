@@ -109,11 +109,11 @@ html {
 }
 
 .menu_operation button {
-    padding: 15px;
-    border-radius: 25px;
+    padding: 10px;
+    border-radius: 17px;
     border: none;
     flex-grow: 1;
-    height: calc(100% / 5.6);
+    height: calc(100% /6.7);
     text-align: center;
     transition: all .3s ease;
     cursor: pointer;
