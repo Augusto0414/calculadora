@@ -18,7 +18,7 @@ export const useOperation = () => {
                 setHandleClick(prevValue => prevValue + '*');
                 break;
             case '/':
-                setHandleClick(prevValue => prevValue + '');
+                setHandleClick(prevValue => prevValue + '/');
                 break;
             case 'AC':
                 setHandleClick(() => '0');
